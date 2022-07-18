@@ -17,10 +17,10 @@ def build_query(cmd: str, val: str, file_list: Iterator) -> List[Any]:
         return list(sorted(file_list, reverse=reverse))
 
     if cmd == 'limit':
-        val = int(val)
         return list(file_list)[:int(val)]
+
     if cmd == 'regex':
         regex = re.compile(val)
-        return list(filter(lambda  x: regex.search(x), file_list))
+        return list(filter(lambda x: regex.search(x), file_list))
     return []
 
